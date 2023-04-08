@@ -301,6 +301,10 @@
       "commands": ["editor.action.rename"]
     },
     {
+      "before": ["<C-w>"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
       "before": ["q", "f"],
       "commands": ["editor.action.formatDocument"]
     },
@@ -315,6 +319,11 @@
     {
       "before": ["f", "f"],
       "commands": ["actions.find"]
+    },
+
+    {
+      "before": ["f", "p"],
+      "commands": ["workbench.view.search"]
     },
     {
       "before": ["f", "r"],
@@ -398,5 +407,9 @@
   ],
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.openRepositoryInParentFolders": "never"
 }
