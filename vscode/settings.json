@@ -411,5 +411,17 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "git.openRepositoryInParentFolders": "never"
+  "git.openRepositoryInParentFolders": "never",
+  "sonarlint.rules": {},
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "coverage-gutters.coverageFileNames": [
+    "lcov.info",
+    "cov.xml",
+    "coverage.xml",
+    "jacoco.xml",
+    "coverage.cobertura.xml"
+  ],
+  "coverage-gutters.coverageBaseDir": "target\\site\\jacoco\\**"
 }
