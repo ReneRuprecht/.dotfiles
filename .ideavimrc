@@ -46,7 +46,6 @@ vnoremap <leader>em :action ExtractMethod  <Cr>
 nnoremap <leader>ic :action IntroduceConstant <CR>
 nnoremap <Leader>im :action ImplementMethods<CR>
 nnoremap <Leader>om :action OverrideMethods<CR>
-nnoremap <Leader>nc :action NewClass<CR>
 nnoremap <leader>ge :action Generate<CR>
 
 nnoremap gh :action Back <CR>
@@ -66,13 +65,15 @@ nmap <leader>l :action NextTab<CR>
 
 nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
 nnoremap <leader>wh :action HideActiveWindow<CR>
+nnoremap <leader>q :action CloseContent<CR>
 
 " Plugins
 Plug 'tpope/vim-surround'
 
 Plug 'preservim/nerdtree'
-nnoremap gp :NERDTreeToggle<Enter>
-
+nnoremap <leader>nt :NERDTreeToggle<Enter>
+nnoremap <leader>ns :NERDTree<Enter>
+nnoremap <leader>nc :NERDTreeClose<Enter>
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
