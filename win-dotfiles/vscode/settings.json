@@ -301,7 +301,7 @@
       "commands": ["editor.action.rename"]
     },
     {
-      "before": ["<C-w>"],
+      "before": ["<leader>", "q"],
       "commands": ["workbench.action.closeActiveEditor"]
     },
     {
