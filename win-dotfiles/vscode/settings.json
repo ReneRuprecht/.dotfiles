@@ -249,7 +249,7 @@
     "**/*.run.xml",
     "**/*.bbl"
   ],
-  "auto-build.defaultEnv.name": "STM32F103RE_creality",
+  "auto-build.defaultEnv.name": "melzi",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -423,5 +423,6 @@
     "jacoco.xml",
     "coverage.cobertura.xml"
   ],
-  "coverage-gutters.coverageBaseDir": "target\\site\\jacoco\\**"
+  "coverage-gutters.coverageBaseDir": "target\\site\\jacoco\\**",
+  "auto-build.build.silent": false
 }

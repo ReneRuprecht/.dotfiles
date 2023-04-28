@@ -71,9 +71,9 @@ nnoremap <leader>q :action CloseContent<CR>
 Plug 'tpope/vim-surround'
 
 Plug 'preservim/nerdtree'
-nnoremap <leader>nt :NERDTreeToggle<Enter>
-nnoremap <leader>ns :NERDTree<Enter>
-nnoremap <leader>nc :NERDTreeClose<Enter>
+nnoremap <leader>pt :NERDTreeToggle<Enter>
+nnoremap <leader>pv :NERDTree<Enter>
+nnoremap <leader>pc :NERDTreeClose<Enter>
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
