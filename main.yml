@@ -1,0 +1,121 @@
+---
+- hosts: localhost
+  vars:
+    user_name: txd
+    user_path: /home/{{user_name}}  
+
+# git section
+  tasks:
+    - name: install git
+      become: true
+      apt:
+        name: git 
+
+    - name: install curl
+      become: true
+      apt:
+        name: curl
+
+# zsh section
+    - name: install zsh
+      become: true
+      apt:
+        name: zsh
+
+    - name: check zsh file
+      stat:
+        path: $HOME/.oh-my-zsh
+      register: oh_my_stats
+
+    - name: install oh-my-zsh
+      shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
+      when: oh_my_stats.stat.exists == false
+      become_user: "{{user_name}}"
+
+    - name: check powerlevel10k
+      stat:
+        path: $HOME/powerlevel10k
+      register: powerlevel10k 
+    - name: install powerlevel10k
+      shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k && echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
+      when: powerlevel10k.stat.exists == false
+
+# font section
+    - name: check fonts folder
+      stat:
+        path: $HOME/.fonts
+      register: fonts_dir
+
+    - name: make fonts folder
+      shell: mkdir $HOME/.fonts 
+      when: fonts_dir.stat.exists == false
+
+    - name: check regular
+      stat:
+        path: $HOME/.fonts/MensloNFRegular.ttf
+      register: menslo_regular
+
+    - name: install regular
+      shell: wget -O $HOME/.fonts/MensloNFRegular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf 
+      when: menslo_regular.stat.exists == false
+
+    - name: check bold
+      stat:
+        path: $HOME/.fonts/MensloNFBold.ttf
+      register: menslo_bold
+
+    - name: install bold
+      shell: wget -O $HOME/.fonts/MensloNFBold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf 
+      when: menslo_bold.stat.exists == false
+
+    - name: check italic
+      stat:
+        path: $HOME/fonts/MensloNFItalic.ttf
+      register: menslo_italic
+
+    - name: install italic
+      shell: wget -O $HOME/.fonts/MensloNFItalic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf 
+      when: menslo_italic.stat.exists == false
+
+    - name: check bold italic
+      stat:
+        path: $HOME/.fonts/MensloNFBoldItalic.ttf
+      register: menslo_bold_italic
+
+    - name: install Bold Italic
+      shell: wget -O $HOME/.fonts/MensloNFBoldItalic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf 
+      when: menslo_bold_italic.stat.exists == false
+
+# neovim section        
+    - name: install neovim req
+      become: true
+      apt:
+        name:
+          - cmake
+          - make
+          - g++
+          - gcc
+          - ninja-build
+          - gettext
+
+    - name: remove neovim
+      shell: rm -rf {{user_path}}/neovim
+      become: true
+    - name: clone neovim
+      ansible.builtin.git:
+        repo: "https://github.com/neovim/neovim.git"
+        dest: "{{user_path}}/neovim"
+      become_user: "{{user_name}}"
+
+    - name: make neovim
+      shell: cd {{user_path}}/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+      become_user: "{{user_name}}"
+
+    - name: install neovim
+      shell: cd {{user_path}}/neovim && git checkout stable &&  make install
+      become: true
+
+
+
+
+
