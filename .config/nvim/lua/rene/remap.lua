@@ -20,3 +20,8 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+
+vim.keymap.set("n","<M-Enter>","<cmd>:lua vim.lsp.buf.code_action()<CR>")
+
+vim.keymap.set('n', '<leader>qf', "<cmd>lua vim.lsp.buf.format({async=true})<CR>")
