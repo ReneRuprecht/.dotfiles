@@ -1,0 +1,30 @@
+# neovim section        
+- name: Install neovim req
+  become: true
+  apt:
+    name:
+      - cmake
+      - make
+      - g++
+      - gcc
+      - ninja-build
+      - gettext
+
+- name: Remove old neovim
+  shell: rm -rf {{user_path}}/neovim
+  become: true
+
+- name: clone neovim
+  ansible.builtin.git:
+    repo: "https://github.com/neovim/neovim.git"
+    dest: "{{user_path}}/neovim"
+  become_user: "{{user_name}}"
+
+- name: Make neovim
+  shell: cd {{user_path}}/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+  become_user: "{{user_name}}"
+
+- name: Install neovim
+  shell: cd {{user_path}}/neovim && git checkout stable &&  make install
+  become: true
+

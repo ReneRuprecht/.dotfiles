@@ -1,0 +1,6 @@
+- name: Install node and npm
+  become: true
+  apt:
+    name:
+      - nodejs
+      - npm
