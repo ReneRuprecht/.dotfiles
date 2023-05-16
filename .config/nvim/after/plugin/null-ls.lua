@@ -4,6 +4,7 @@ local formatting = nls.builtins.formatting
 
 nls.setup({
     sources = {
-        formatting.prettier
+        formatting.prettier,
+        --if extra args are needed formatting.prettier.with({ extra_args = {} }),
     },
 })
