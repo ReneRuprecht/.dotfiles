@@ -26,7 +26,14 @@ return {
         lsp.preset("minimal")
 
         lsp.ensure_installed({
-            'tsserver', 'lua_ls', 'emmet_ls', 'html', 'eslint', 'intelephense'
+            'tsserver',
+            'lua_ls',
+            'emmet_ls',
+            'html',
+            'eslint',
+            'intelephense',
+            'dockerls',
+            'docker_compose_language_service',
         })
 
         -- Fix Undefined global 'vim'

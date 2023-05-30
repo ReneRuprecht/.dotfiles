@@ -36,6 +36,23 @@ return {
             adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
         }
 
+        dap.adapters.php = {
+            type = "executable",
+            command = "node",
+            args = { vim.fn.stdpath("data") .. "/custom/debugger/vscode-php-debug/out/phpDebug.js" }
+        }
+
+        dap.configurations.php = {
+            {
+                type = "php",
+                request = "launch",
+                name = "Listen for Xdebug",
+                port = 9003,
+                pathMappings = {
+                    ["/var/www/html"] = "${workspaceFolder}"
+                }
+            }
+        }
         for _, language in ipairs { "typescript", "javascript" } do
             require("dap").configurations[language] = {
                 {
@@ -83,7 +100,7 @@ return {
             "microsoft/vscode-js-debug",
             opt = true,
             build =
-            "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mkdir -p ~/.local/share/nvim/custom/vscide-js-debug && mv dist ~/.local/share/nvim/custom/debugger/vscode-js-debug/out"
+            "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mkdir -p ~/.local/share/nvim/custom/debugger/vscode-js-debug && mv dist ~/.local/share/nvim/custom/debugger/vscode-js-debug/out"
         },
     },
 }
