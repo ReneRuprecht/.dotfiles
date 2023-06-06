@@ -20,7 +20,7 @@ nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
 set incsearch
 
 " quick format
-map qf gq<Enter>
+map <leader>qf gq<Enter>
 
 set clipboard+=unnamed
 
@@ -67,6 +67,7 @@ vmap <leader>// :action CommentByBlockComment<CR>
 nmap <leader>h :action PreviousTab<CR>
 nmap <leader>l :action NextTab<CR>
 
+nnoremap <c-x> :action ShowErrorDescription<CR>
 
 nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
 nnoremap <leader>wh :action HideActiveWindow<CR>
