@@ -83,6 +83,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+alias dcd="docker-compose down"
+alias dcu="docker-compose up -d"
+alias dcb="docker-compose build --no-cache"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
