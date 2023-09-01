@@ -20,13 +20,13 @@ nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
 set incsearch
 
 " quick format
-map <leader>qf gq<Enter>
+map <leader>qf gq<CR>
 
 set clipboard+=unnamed
 
 " jump with centering
-nnoremap <leader>d <C-d>zz
-nnoremap <leader>u <C-u>zz
+nnoremap <C-d> :action EditorPageDown<CR>zz<CR>
+nnoremap <C-u> :action EditorPageUp<CR>zz<CR>
 
 nnoremap L $
 nnoremap H ^
@@ -69,9 +69,11 @@ nmap <leader>l :action NextTab<CR>
 
 nnoremap <c-x> :action ShowErrorDescription<CR>
 
-nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
-nnoremap <leader>wh :action HideActiveWindow<CR>
 nnoremap <leader>q :action CloseContent<CR>
+
+nnoremap <leader>zmt :action ToggleZenMode<CR>
+
+nnoremap <C-s> :action SaveAll<CR>
 
 " Plugins
 Plug 'tpope/vim-surround'
