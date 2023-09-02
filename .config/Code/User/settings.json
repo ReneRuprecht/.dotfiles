@@ -1,0 +1,214 @@
+{
+  "editor.formatOnSave": true,
+  "editor.suggest.insertMode": "replace",
+  "editor.linkedEditing": true,
+  "editor.fontFamily": "MesloLGS NF",
+  "editor.minimap.enabled": false,
+  "workbench.colorTheme": "Catppuccin Frappé",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.lineNumbers": "relative",
+  "workbench.iconTheme": "vscode-icons",
+  "zenMode.hideTabs": false,
+  "update.showReleaseNotes": false,
+  "vim.leader": " ",
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-s>": false,
+    "<C-z>": false,
+  },
+  "vim.history": 500,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    { // copy from system
+      "before": [
+        "<leader>",
+        "p"
+      ],
+      "after": [
+        "\"",
+        "+",
+        "p"
+      ]
+    },
+    // BUFFERS
+    { // next buffer
+      "before": [
+        "<S-l>"
+      ],
+      "commands": [
+        ":bnext"
+      ]
+    },
+    { // prev buffer
+      "before": [
+        "<S-h>"
+      ],
+      "commands": [
+        ":bprevious"
+      ]
+    },
+    // BUFFERS END
+    // SPLITS
+    { // v split
+      "before": [
+        "<leader>",
+        "v"
+      ],
+      "commands": [
+        ":vsplit"
+      ]
+    },
+    { // h split
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        ":split"
+      ]
+    },
+    // SPLITS END
+    // PANES NAVIGATION
+    { // left pane
+      "before": [
+        "<leader>",
+        "h"
+      ],
+      "commands": [
+        "workbench.action.focusLeftGroup"
+      ]
+    },
+    { // bottom pane
+      "before": [
+        "<leader>",
+        "j"
+      ],
+      "commands": [
+        "workbench.action.focusBelowGroup"
+      ]
+    },
+    { // above pane
+      "before": [
+        "<leader>",
+        "k"
+      ],
+      "commands": [
+        "workbench.action.focusAboveGroup"
+      ]
+    },
+    { // right pane
+      "before": [
+        "<leader>",
+        "l"
+      ],
+      "commands": [
+        "workbench.action.focusRightGroup"
+      ]
+    },
+    // PANES NAVIGATION END
+    // EXPLORER
+    { // toggle explorer
+      "before": [
+        "<leader>",
+        "p",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
+    // EXPLORER END
+    // EXTRA
+    { // toggle zen mode
+      "before": [
+        "<leader>",
+        "z",
+        "m",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.toggleZenMode"
+      ]
+    },
+    // EXTRA END
+    {
+      "before": [
+        "<C-d>"
+      ],
+      "after": [
+        "<PageDown>",
+        "z",
+        "z"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "q"
+      ],
+      "commands": [
+        ":q"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "f",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    { // copy into system
+      "before": [
+        "<leader>",
+        "y"
+      ],
+      "after": [
+        "\"",
+        "+",
+        "y"
+      ]
+    },
+    { // copy from system
+      "before": [
+        "<leader>",
+        "p"
+      ],
+      "after": [
+        "\"",
+        "+",
+        "p"
+      ]
+    },
+    { // move line up
+      "before": [
+        "J"
+      ],
+      "commands": [
+        "editor.action.moveLinesUpAction"
+      ]
+    },
+    { // move line down
+      "before": [
+        "K"
+      ],
+      "commands": [
+        "editor.action.moveLinesDownAction"
+      ]
+    },
+    { // paste from system
+      "before": [
+        "<leader>",
+        "p"
+      ],
+      "after": [
+        "\"",
+        "+",
+        "p"
+      ]
+    },
+  ],
+}
