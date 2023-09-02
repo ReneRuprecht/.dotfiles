@@ -55,4 +55,12 @@
         "key": "ctrl+e",
         "command": "-workbench.action.quickOpen"
     },
+    {
+        "key": "ctrl+shift+p",
+        "command": "-workbench.action.showCommands"
+    },
+    {
+        "key": "shift shift",
+        "command": "workbench.action.showCommands"
+    },
 ]

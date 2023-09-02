@@ -39,7 +39,7 @@ nnoremap J :action MoveLineDown<CR>
 vnoremap J :action MoveStatementDown<CR>
 
 nnoremap gd :action GotoDeclaration<CR>
-nnoremap gf :action GotoFile<CR>
+nnoremap <C-p> :action GotoFile<CR>
 nnoremap ff :action FindInPath<CR>
 nnoremap fu :action FindUsages<CR>
 nnoremap <leader>gc :action GotoClass <CR>
