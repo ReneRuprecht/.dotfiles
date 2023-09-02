@@ -22,9 +22,9 @@
     },
     // EXPLORER
     {
-        "command": "workbench.files.action.focusFilesExplorer",
+        "command": "workbench.view.explorer",
         "key": "ctrl+e",
-        "when": "editorTextFocus"
+        "when": "viewContainer.workbench.view.explorer.enabled"
     },
     {
         "key": "n",
@@ -47,13 +47,12 @@
         "when": "filesExplorerFocus && !inputFocus"
     },
     {
-        "key": "space r",
-        "command": "editor.action.refactor",
-        "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
-    },
-    {
         "key": "ctrl+shift+r",
         "command": "-editor.action.refactor",
         "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
     },
 ]

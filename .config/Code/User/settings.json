@@ -1,15 +1,11 @@
 {
   "editor.formatOnSave": true,
-  "editor.suggest.insertMode": "replace",
-  "editor.linkedEditing": true,
-  "editor.fontFamily": "MesloLGS NF",
-  "editor.minimap.enabled": false,
   "workbench.colorTheme": "Catppuccin Frappé",
+  "editor.fontFamily": "MesloLGS NF",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.lineNumbers": "relative",
   "workbench.iconTheme": "vscode-icons",
-  "zenMode.hideTabs": false,
-  "update.showReleaseNotes": false,
+  "editor.minimap.enabled": false,
   "vim.leader": " ",
   "vim.handleKeys": {
     "<C-d>": true,
@@ -18,7 +14,8 @@
   },
   "vim.history": 500,
   "vim.normalModeKeyBindingsNonRecursive": [
-    { // copy from system
+    // COPY
+    { // paste from system
       "before": [
         "<leader>",
         "p"
@@ -29,6 +26,7 @@
         "p"
       ]
     },
+    // COPY END
     // BUFFERS
     { // next buffer
       "before": [
@@ -117,6 +115,18 @@
       ]
     },
     // EXPLORER END
+    // FIND
+    { // go to file
+      "before": [
+        "<leader>",
+        "f",
+        "f",
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    // FIND END
     // EXTRA
     { // toggle zen mode
       "before": [
@@ -130,35 +140,6 @@
       ]
     },
     // EXTRA END
-    {
-      "before": [
-        "<C-d>"
-      ],
-      "after": [
-        "<PageDown>",
-        "z",
-        "z"
-      ]
-    },
-    {
-      "before": [
-        "leader",
-        "q"
-      ],
-      "commands": [
-        ":q"
-      ]
-    },
-    {
-      "before": [
-        "leader",
-        "f",
-        "f"
-      ],
-      "commands": [
-        "workbench.action.quickOpen"
-      ]
-    },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     { // copy into system
