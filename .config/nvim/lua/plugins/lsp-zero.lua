@@ -1,7 +1,6 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    priority = 1,
+    branch = 'v3.x',
     dependencies = {
         -- LSP Support
         { 'neovim/nvim-lspconfig' },
@@ -21,28 +20,32 @@ return {
         { 'rafamadriz/friendly-snippets' },
     },
     config = function()
-        local lsp = require("lsp-zero")
+        local lsp_zero = require('lsp-zero')
 
-        lsp.preset("minimal")
-
-        lsp.ensure_installed({
-            'tsserver',
-            'lua_ls',
-            'emmet_ls',
-            'html',
-            'eslint',
-            'intelephense',
-            'dockerls',
-            'docker_compose_language_service',
+        require('mason').setup({})
+        require('mason-lspconfig').setup({
+            ensure_installed = { 'tsserver',
+                'lua_ls',
+                'clangd',
+                'emmet_ls',
+                'html',
+                'eslint',
+                'intelephense',
+                'dockerls',
+                'docker_compose_language_service', },
+            handlers = {
+                lsp_zero.default_setup,
+                lua_ls = function()
+                    local lua_opts = lsp_zero.nvim_lua_ls()
+                    require('lspconfig').lua_ls.setup(lua_opts)
+                end,
+            }
         })
 
-        -- Fix Undefined global 'vim'
-        lsp.nvim_workspace()
-
-
         local cmp = require('cmp')
+        local cmp_format = lsp_zero.cmp_format()
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
-        local cmp_mappings = lsp.defaults.cmp_mappings({
+        local cmp_mappings = lsp_zero.defaults.cmp_mappings({
             ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
             ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
             ['<Enter>'] = cmp.mapping.confirm({ select = true }),
@@ -52,21 +55,12 @@ return {
         cmp_mappings['<Tab>'] = nil
         cmp_mappings['<S-Tab>'] = nil
 
-        lsp.setup_nvim_cmp({
+        cmp.setup({
+            formatting = cmp_format,
             mapping = cmp_mappings
         })
 
-        lsp.set_preferences({
-            suggest_lsp_servers = false,
-            sign_icons = {
-                error = 'E',
-                warn = 'W',
-                hint = 'H',
-                info = 'I'
-            }
-        })
-
-        lsp.on_attach(function(client, bufnr)
+        lsp_zero.on_attach(function(client, bufnr)
             local opts = { buffer = bufnr, remap = false }
 
             vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -88,7 +82,12 @@ return {
             vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
         end)
 
-        lsp.setup()
+        lsp_zero.set_sign_icons({
+            error = 'E',
+            warn = 'W',
+            hint = 'H',
+            info = 'I'
+        })
 
         vim.diagnostic.config({
             virtual_text = true
