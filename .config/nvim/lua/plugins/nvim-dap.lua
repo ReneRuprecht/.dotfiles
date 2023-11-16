@@ -28,64 +28,6 @@ return {
         dap.listeners.before.event_exited["dapui_config"] = function()
             dapui.close()
         end
-
-        require("dap-vscode-js").setup {
-            node_path = "node",
-            debugger_path = vim.fn.stdpath("data") .. "/custom/debugger/vscode-js-debug",
-            -- debugger_cmd = { "js-debug-adapter" },
-            adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
-        }
-
-        dap.adapters.php = {
-            type = "executable",
-            command = "node",
-            args = { vim.fn.stdpath("data") .. "/custom/debugger/vscode-php-debug/out/phpDebug.js" }
-        }
-
-        dap.configurations.php = {
-            {
-                type = "php",
-                request = "launch",
-                name = "Listen for Xdebug",
-                port = 9003,
-                pathMappings = {
-                    ["/var/www/html"] = "${workspaceFolder}"
-                }
-            }
-        }
-        for _, language in ipairs { "typescript", "javascript" } do
-            require("dap").configurations[language] = {
-                {
-                    type = "pwa-node",
-                    request = "launch",
-                    name = "Launch file",
-                    program = "${file}",
-                    cwd = "${workspaceFolder}",
-                },
-                {
-                    type = "pwa-node",
-                    request = "attach",
-                    name = "Attach",
-                    processId = require("dap.utils").pick_process,
-                    cwd = "${workspaceFolder}",
-                },
-                {
-                    type = "pwa-node",
-                    request = "launch",
-                    name = "Debug Jest Tests",
-                    -- trace = true, -- include debugger info
-                    runtimeExecutable = "node",
-                    runtimeArgs = {
-                        "./node_modules/jest/bin/jest.js",
-                        "--runInBand",
-                    },
-                    rootPath = "${workspaceFolder}",
-                    cwd = "${workspaceFolder}",
-                    console = "integratedTerminal",
-                    internalConsoleOptions = "neverOpen",
-                },
-            }
-        end
     end,
 
     dependencies = {
@@ -95,12 +37,6 @@ return {
         {
             "mxsdev/nvim-dap-vscode-js",
             module = { "dap-vscode-js" }
-        },
-        {
-            "microsoft/vscode-js-debug",
-            opt = true,
-            build =
-            "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mkdir -p ~/.local/share/nvim/custom/debugger/vscode-js-debug && mv dist ~/.local/share/nvim/custom/debugger/vscode-js-debug/out"
         },
     },
 }
