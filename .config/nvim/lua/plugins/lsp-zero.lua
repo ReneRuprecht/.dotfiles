@@ -25,6 +25,8 @@ return {
         require('mason').setup({})
         require('mason-lspconfig').setup({
             ensure_installed = { 'tsserver',
+                'rust_analyzer',
+                'gopls',
                 'lua_ls',
                 'clangd',
                 'emmet_ls',
@@ -39,6 +41,25 @@ return {
                     local lua_opts = lsp_zero.nvim_lua_ls()
                     require('lspconfig').lua_ls.setup(lua_opts)
                 end,
+                rust_analyzer = function()
+                    require('lspconfig').rust_analyzer.setup {
+
+                    }
+                end,
+                gopls = function()
+                    require('lspconfig').gopls.setup {
+                        settings = {
+                            gopls = {
+                                usePlaceholders = true,
+                                analyses = {
+                                    unusedparams = true,
+                                },
+                                staticcheck = true,
+                                gofumpt = true,
+                            },
+                        },
+                    }
+                end
             }
         })
 
