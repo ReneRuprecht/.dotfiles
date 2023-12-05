@@ -86,6 +86,9 @@ source $ZSH/oh-my-zsh.sh
 alias dcd="docker-compose down"
 alias dcu="docker-compose up -d"
 alias dcb="docker-compose build --no-cache"
+
+alias python=python3
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
