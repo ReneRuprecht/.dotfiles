@@ -60,6 +60,8 @@ nnoremap gk :action MethodUp <CR>
 
 nnoremap d "_d
 vnoremap d "_d
+vnoremap p "+p
+vnoremap y "+y
 
 " blockstyle comments
 vmap <leader>// :action CommentByBlockComment<CR>
