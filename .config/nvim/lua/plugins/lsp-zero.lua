@@ -63,6 +63,9 @@ return {
             }
         })
 
+
+        local luasnip = require("luasnip")
+        require("luasnip.loaders.from_vscode").lazy_load()
         local cmp = require('cmp')
         local cmp_format = lsp_zero.cmp_format()
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -78,7 +81,19 @@ return {
 
         cmp.setup({
             formatting = cmp_format,
-            mapping = cmp_mappings
+            mapping = cmp_mappings,
+            snippet = {
+                expand = function(args)
+                    luasnip.lsp_expand(args.body)
+                end,
+            },
+            sources = cmp.config.sources({
+                { name = "nvim_lsp" },
+                { name = "luasnip" },
+                { name = "path" },
+            }, {
+                { name = "buffer" },
+            }),
         })
 
         lsp_zero.on_attach(function(client, bufnr)
@@ -87,7 +102,6 @@ return {
             vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
             vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
             vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-            vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
             vim.keymap.set("n", "<M-Enter>", function() vim.lsp.buf.code_action() end, opts)
             vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
             vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
@@ -109,7 +123,8 @@ return {
         })
 
         vim.diagnostic.config({
-            virtual_text = true
+            virtual_text = true,
+            severity_sort = true,
         })
     end
 }
