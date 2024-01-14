@@ -18,6 +18,9 @@ return {
         -- Snippets
         { 'L3MON4D3/LuaSnip' },
         { 'rafamadriz/friendly-snippets' },
+
+        -- 
+        { 'windwp/nvim-autopairs' },
     },
     config = function()
         local lsp_zero = require('lsp-zero')
@@ -75,9 +78,6 @@ return {
                 end,
             }
         })
-
-
-        local luasnip = require("luasnip")
         require("luasnip.loaders.from_vscode").lazy_load()
         local cmp = require('cmp')
         local cmp_format = lsp_zero.cmp_format()
@@ -88,6 +88,12 @@ return {
             ['<Enter>'] = cmp.mapping.confirm({ select = true }),
             ["<C-Space>"] = cmp.mapping.complete(),
         })
+
+        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+        cmp.event:on(
+            'confirm_done',
+            cmp_autopairs.on_confirm_done()
+        )
 
         cmp_mappings['<Tab>'] = nil
         cmp_mappings['<S-Tab>'] = nil
