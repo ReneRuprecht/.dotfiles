@@ -37,7 +37,9 @@ return {
                 'intelephense',
                 'tailwindcss',
                 'dockerls',
-                'docker_compose_language_service', },
+                'docker_compose_language_service',
+                'terraformls',
+            },
             handlers = {
                 lsp_zero.default_setup,
                 lua_ls = function()
@@ -76,6 +78,9 @@ return {
                         }
                     }
                 end,
+                terraformls = function()
+                    require 'lspconfig'.terraformls.setup {}
+                end
             }
         })
 

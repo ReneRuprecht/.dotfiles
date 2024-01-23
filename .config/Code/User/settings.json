@@ -193,4 +193,8 @@
     },
   ],
   "workbench.startupEditor": "none",
+  "window.menuBarVisibility": "toggle",
+  "vscode-pets.theme": "forest",
+  "vscode-pets.throwBallWithMouse": true,
+  "vscode-pets.position": "panel",
 }
