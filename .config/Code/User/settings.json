@@ -1,200 +1,194 @@
 {
-  "editor.formatOnSave": true,
-  "workbench.colorTheme": "Catppuccin Frappé",
-  "editor.fontFamily": "MesloLGS NF",
+  "breadcrumbs.enabled": false,
+  "extensions.ignoreRecommendations": true,
+  "update.showReleaseNotes": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.lineNumbers": "relative",
-  "workbench.iconTheme": "vscode-icons",
   "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.fontFamily": "MesloLGS NF",
+  "editor.lineNumbers": "relative",
+  "editor.detectIndentation": true,
+  "editor.formatOnPaste": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.snippetSuggestions": "top",
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "files.autoSave": "onWindowChange",
+  "explorer.openEditors.visible": 1,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.editor.showTabs": "none",
+  "workbench.colorTheme": "Catppuccin Frappé",
+  "workbench.startupEditor": "none",
+  "workbench.sideBar.location": "right",
+  "window.menuBarVisibility": "toggle",
+  "zenMode.showTabs": "none",
+  "zenMode.hideLineNumbers": false,
+  "zenMode.fullScreen": true,
+  "zenMode.centerLayout": true,
+  "zenMode.hideStatusBar": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh"
+    },
+    "fish": {
+      "path": "fish"
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux",
+      "args": ["new-session", "-A", "-s", "vscode:${workspaceFolder}"]
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": ["-l"],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": ["-l"]
+    },
+    "fish": {
+      "path": "fish",
+      "args": ["-l"]
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux",
+      "args": ["new-session", "-A", "-s", "vscode:${workspaceFolder}"]
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "tmux",
   "vim.leader": " ",
+  "vim.hlsearch": true,
   "vim.handleKeys": {
     "<C-d>": true,
     "<C-s>": false,
     "<C-z>": false,
+    "<C-k>": false
   },
   "vim.history": 500,
   "vim.normalModeKeyBindingsNonRecursive": [
     // COPY
-    { // paste from system
-      "before": [
-        "<leader>",
-        "p"
-      ],
-      "after": [
-        "\"",
-        "+",
-        "p"
-      ]
+    {
+      // paste from system
+      "before": ["<leader>", "p"],
+      "after": ["\"", "+", "p"]
     },
     // COPY END
-    // BUFFERS
-    { // next buffer
-      "before": [
-        "<S-l>"
-      ],
-      "commands": [
-        ":bnext"
-      ]
-    },
-    { // prev buffer
-      "before": [
-        "<S-h>"
-      ],
-      "commands": [
-        ":bprevious"
-      ]
-    },
-    // BUFFERS END
-    // SPLITS
-    { // v split
-      "before": [
-        "<leader>",
-        "v"
-      ],
-      "commands": [
-        ":vsplit"
-      ]
-    },
-    { // h split
-      "before": [
-        "<leader>",
-        "s"
-      ],
-      "commands": [
-        ":split"
-      ]
-    },
-    // SPLITS END
     // PANES NAVIGATION
-    { // left pane
-      "before": [
-        "<leader>",
-        "h"
-      ],
-      "commands": [
-        "workbench.action.focusLeftGroup"
-      ]
+    {
+      // left pane
+      "before": ["<leader>", "h"],
+      "commands": ["workbench.action.focusLeftGroup"]
     },
-    { // bottom pane
-      "before": [
-        "<leader>",
-        "j"
-      ],
-      "commands": [
-        "workbench.action.focusBelowGroup"
-      ]
+    {
+      // bottom pane
+      "before": ["<leader>", "j"],
+      "commands": ["workbench.action.focusBelowGroup"]
     },
-    { // above pane
-      "before": [
-        "<leader>",
-        "k"
-      ],
-      "commands": [
-        "workbench.action.focusAboveGroup"
-      ]
+    {
+      // above pane
+      "before": ["<leader>", "k"],
+      "commands": ["workbench.action.focusAboveGroup"]
     },
-    { // right pane
-      "before": [
-        "<leader>",
-        "l"
-      ],
-      "commands": [
-        "workbench.action.focusRightGroup"
-      ]
+    {
+      // right pane
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.focusRightGroup"]
     },
     // PANES NAVIGATION END
     // EXPLORER
-    { // toggle explorer
-      "before": [
-        "<leader>",
-        "p",
-        "t"
-      ],
-      "commands": [
-        "workbench.action.toggleSidebarVisibility"
-      ]
+    {
+      // toggle explorer
+      "before": ["<leader>", "e", "t"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
     },
     // EXPLORER END
     // FIND
-    { // go to file
-      "before": [
-        "<leader>",
-        "f",
-        "f",
-      ],
-      "commands": [
-        "workbench.action.quickOpen"
-      ]
+    {
+      // go to file
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
     },
     // FIND END
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["leader", "q", "f"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
     // EXTRA
-    { // toggle zen mode
-      "before": [
-        "<leader>",
-        "z",
-        "m",
-        "t"
-      ],
-      "commands": [
-        "workbench.action.toggleZenMode"
-      ]
+    {
+      // toggle zen mode
+      "before": ["<leader>", "z", "m", "t"],
+      "commands": ["workbench.action.toggleZenMode"]
     },
     // EXTRA END
+    // Editor Actions
+    {
+      "before": ["<leader>", "r"],
+      "commands": ["editor.action.rename"]
+    }
+    // Editor Actions End
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
-    { // copy into system
-      "before": [
-        "<leader>",
-        "y"
-      ],
-      "after": [
-        "\"",
-        "+",
-        "y"
-      ]
+    {
+      // copy into system
+      "before": ["<leader>", "y"],
+      "after": ["\"", "+", "y"]
     },
-    { // copy from system
-      "before": [
-        "<leader>",
-        "p"
-      ],
-      "after": [
-        "\"",
-        "+",
-        "p"
-      ]
+    {
+      // copy from system
+      "before": ["<leader>", "p"],
+      "after": ["\"", "+", "p"]
     },
-    { // move line up
-      "before": [
-        "J"
-      ],
-      "commands": [
-        "editor.action.moveLinesUpAction"
-      ]
+    {
+      // move line up
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesUpAction"]
     },
-    { // move line down
-      "before": [
-        "K"
-      ],
-      "commands": [
-        "editor.action.moveLinesDownAction"
-      ]
+    {
+      // move line down
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesDownAction"]
     },
-    { // paste from system
-      "before": [
-        "<leader>",
-        "p"
-      ],
-      "after": [
-        "\"",
-        "+",
-        "p"
-      ]
+    {
+      // paste from system
+      "before": ["<leader>", "p"],
+      "after": ["\"", "+", "p"]
     },
-  ],
-  "workbench.startupEditor": "none",
-  "window.menuBarVisibility": "toggle",
-  "vscode-pets.theme": "forest",
-  "vscode-pets.throwBallWithMouse": true,
-  "vscode-pets.position": "panel",
+    {
+      // paste from system
+      "before": ["<leader>", "P"],
+      "after": ["\"", "+", "P"]
+    }
+  ]
 }
