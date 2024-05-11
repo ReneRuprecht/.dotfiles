@@ -1,4 +1,10 @@
 {
+  "window.customTitleBarVisibility": "auto",
+  "workbench.activityBar.location": "default",
+  "workbench.sideBar.location": "right",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.editor.editorActionsLocation": "hidden",
   "breadcrumbs.enabled": false,
   "extensions.ignoreRecommendations": true,
   "update.showReleaseNotes": false,
@@ -24,7 +30,6 @@
   "workbench.editor.showTabs": "none",
   "workbench.colorTheme": "Catppuccin Frappé",
   "workbench.startupEditor": "none",
-  "workbench.sideBar.location": "right",
   "window.menuBarVisibility": "toggle",
   "zenMode.showTabs": "none",
   "zenMode.hideLineNumbers": false,
@@ -84,6 +89,7 @@
   "vim.hlsearch": true,
   "vim.handleKeys": {
     "<C-d>": true,
+    "<C-u>": true,
     "<C-s>": false,
     "<C-z>": false,
     "<C-k>": false
@@ -138,11 +144,11 @@
       "commands": ["editor.action.quickFix"]
     },
     {
-      "before": ["leader", "q", "f"],
+      "before": ["<leader>", "q", "f"],
       "commands": ["editor.action.formatDocument"]
     },
     {
-      "before": ["g", "h"],
+      "before": ["K"],
       "commands": ["editor.action.showDefinitionPreviewHover"]
     },
     // EXTRA
@@ -150,6 +156,14 @@
       // toggle zen mode
       "before": ["<leader>", "z", "m", "t"],
       "commands": ["workbench.action.toggleZenMode"]
+    },
+    {
+      "before": ["<C-d>"],
+      "after": ["2", "0", "j", "z", "z"]
+    },
+    {
+      "before": ["<C-u>"],
+      "after": ["2", "0", "k", "z", "z"]
     },
     // EXTRA END
     // Editor Actions
@@ -172,12 +186,12 @@
     },
     {
       // move line up
-      "before": ["J"],
+      "before": ["K"],
       "commands": ["editor.action.moveLinesUpAction"]
     },
     {
       // move line down
-      "before": ["K"],
+      "before": ["J"],
       "commands": ["editor.action.moveLinesDownAction"]
     },
     {

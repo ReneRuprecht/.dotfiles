@@ -13,7 +13,7 @@
   },
   {
     "key": "ctrl+shift+j",
-    "command": "workbench.action.togglePanel"
+    "command": "workbench.action.terminal.toggleTerminal"
   },
   {
     "key": "ctrl+shift+n",
@@ -82,6 +82,16 @@
     "key": "ctrl+p",
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "editor.action.pageDownHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "editor.action.pageUpHover",
+    "when": "editorHoverFocused"
   },
   /// disabled
   {
@@ -569,5 +579,20 @@
     "key": "f2",
     "command": "-editor.action.rename",
     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "pagedown",
+    "command": "-editor.action.pageDownHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "pageup",
+    "command": "-editor.action.pageUpHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "-workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
   }
 ]
