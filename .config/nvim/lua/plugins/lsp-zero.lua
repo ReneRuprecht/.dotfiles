@@ -51,6 +51,12 @@ return {
 
                     }
                 end,
+                ansiblels = function()
+                    require('lspconfig').ansiblels.setup {
+                        filetypes = { "yaml", "yml", "ansible" },
+                        root_dir = require('lspconfig').util.root_pattern("roles", "playbooks")
+                    }
+                end,
                 gopls = function()
                     require('lspconfig').gopls.setup {
                         settings = {
