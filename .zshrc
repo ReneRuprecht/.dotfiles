@@ -117,3 +117,4 @@ alias python=python3
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH=$PATH:/usr/local/go/bin
+source ~/.nvm/nvm.sh
