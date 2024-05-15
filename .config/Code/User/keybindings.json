@@ -12,16 +12,16 @@
     "when": "terminalFocus"
   },
   {
-    "key": "ctrl+shift+j",
+    "key": "alt+shift+j",
     "command": "workbench.action.terminal.toggleTerminal"
   },
   {
-    "key": "ctrl+shift+n",
+    "key": "alt+shift+n",
     "command": "workbench.action.terminal.new",
     "when": "terminalFocus"
   },
   {
-    "key": "ctrl+w",
+    "key": "alt+shift+q",
     "command": "workbench.action.terminal.kill",
     "when": "terminalFocus"
   },
