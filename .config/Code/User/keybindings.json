@@ -37,6 +37,10 @@
     "when": "viewContainer.workbench.view.explorer.enabled"
   },
   {
+    "command": "workbench.action.toggleSidebarVisibility",
+    "key": "alt+shift+e"
+  },
+  {
     "key": "n",
     "command": "explorer.newFile",
     "when": "filesExplorerFocus && !inputFocus"
