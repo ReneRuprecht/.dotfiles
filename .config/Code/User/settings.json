@@ -204,5 +204,7 @@
       "before": ["<leader>", "P"],
       "after": ["\"", "+", "P"]
     }
-  ]
+  ],
+  "vsicons.dontShowNewVersionMessage": true,
+  "telemetry.telemetryLevel": "off"
 }
