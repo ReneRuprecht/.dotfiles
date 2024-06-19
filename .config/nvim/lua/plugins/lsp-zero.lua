@@ -39,6 +39,7 @@ return {
                 'dockerls',
                 'docker_compose_language_service',
                 'terraformls',
+                'ansiblels',
             },
             handlers = {
                 lsp_zero.default_setup,
