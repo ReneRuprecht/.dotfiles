@@ -120,5 +120,7 @@ alias python=python3
 export PATH=$PATH:/usr/local/go/bin
 # rustlang
 export PATH=$PATH:$HOME/.cargo/bin
+
+export PATH=$PATH:$HOME/.local/bin
 # node
 source ~/.nvm/nvm.sh

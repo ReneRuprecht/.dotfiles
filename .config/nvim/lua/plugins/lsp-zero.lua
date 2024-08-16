@@ -63,6 +63,25 @@ return {
                         root_dir = require('lspconfig').util.root_pattern("roles", "playbooks")
                     }
                 end,
+                dockerls = function()
+                    require('lspconfig').dockerls.setup {
+                        settings = {
+                                docker = {
+                                languageserver = {
+                                    formatter = {
+                                    ignoreMultilineInstructions = true,
+                                },
+                                },
+                            }
+                        }
+                    }
+                end,
+                docker_compose_language_service = function()
+                    require('lspconfig').docker_compose_language_service.setup {
+                        filetypes = { "yaml.docker-compose" },
+                        root_dir = require('lspconfig').util.root_pattern("docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml")
+                    }
+                end,
                 gopls = function()
                     require('lspconfig').gopls.setup {
                         settings = {
