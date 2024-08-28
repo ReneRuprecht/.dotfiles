@@ -23,6 +23,14 @@ return {
         "j-hui/fidget.nvim",
     },
     config = function()
+        local cmp = require('cmp')
+        local cmp_lsp = require("cmp_nvim_lsp")
+        local capabilities = vim.tbl_deep_extend(
+            "force",
+            {},
+            vim.lsp.protocol.make_client_capabilities(),
+            cmp_lsp.default_capabilities())
+
         require("fidget").setup({})
 
         require('mason').setup({})
@@ -41,12 +49,15 @@ return {
                 -- and will be called for each installed server that doesn't have
                 -- a dedicated handler.
                 function(server_name) -- default handler (optional)
-                    require("lspconfig")[server_name].setup {}
+                    require("lspconfig")[server_name].setup {
+                        capabilities = capabilities,
+                    }
                 end,
                 -- Next, you can provide targeted overrides for specific servers.
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
+                        capabilities = capabilities,
                         settings = {
                             Lua = {
                                 diagnostics = {
@@ -59,16 +70,26 @@ return {
                 ["gopls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.gopls.setup {
+                        capabilities = capabilities,
+                        on_attach = function()
+                            vim.keymap.set(
+                                "n",
+                                "<leader>ee",
+                                "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
+                            )
+                        end,
                     }
                 end,
                 ["rust_analyzer"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.rust_analyzer.setup {
+                        capabilities = capabilities,
                     }
                 end,
                 ["ansiblels"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.ansiblels.setup {
+                        capabilities = capabilities,
                         filetypes = { 'yaml' },
                         root_dir = lspconfig.util.root_pattern('ansible.cfg', '.ansible-lint'),
                         single_file_support = true,
@@ -77,17 +98,20 @@ return {
                 ["terraformls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.terraformls.setup {
+                        capabilities = capabilities,
                         filetypes = { "terraform", "terraform-vars", "tf" }
                     }
                 end,
                 ["dockerls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.dockerls.setup {
+                        capabilities = capabilities,
                     }
                 end,
                 ["docker_compose_language_service"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.docker_compose_language_service.setup {
+                        capabilities = capabilities,
                     }
                 end,
             }
@@ -105,7 +129,6 @@ return {
         require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/nvim/config/custom-snippets/" } })
         -- end snip
 
-        local cmp = require('cmp')
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
         cmp.setup({
             snippet = {
