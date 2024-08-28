@@ -41,6 +41,7 @@ return {
                 'rust_analyzer',
                 'dockerls',
                 'docker_compose_language_service',
+                'pyright',
                 'terraformls',
                 'ansiblels',
             },
@@ -83,6 +84,12 @@ return {
                 ["rust_analyzer"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.rust_analyzer.setup {
+                        capabilities = capabilities,
+                    }
+                end,
+                ["pyright"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.pyright.setup {
                         capabilities = capabilities,
                     }
                 end,
