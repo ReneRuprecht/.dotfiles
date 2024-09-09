@@ -124,3 +124,6 @@ export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.local/bin
 # node
 source ~/.nvm/nvm.sh
+
+# pipenv
+export PIPENV_IGNORE_VIRTUALENVS=1
