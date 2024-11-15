@@ -33,9 +33,9 @@ nnoremap H ^
 vnoremap L $
 vnoremap H ^
 
-nnoremap K :action MoveLineUp<CR>
+" nnoremap K :action MoveLineUp<CR>
 vnoremap K :action MoveStatementUp<CR>
-nnoremap J :action MoveLineDown<CR>
+" nnoremap J :action MoveLineDown<CR>
 vnoremap J :action MoveStatementDown<CR>
 
 nnoremap gd :action GotoDeclaration<CR>
