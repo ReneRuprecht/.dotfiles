@@ -38,8 +38,8 @@ return {
             ensure_installed = {
                 'ts_ls',
                 'lua_ls',
-                'gopls',
-                'rust_analyzer',
+                -- 'gopls',
+                -- 'rust_analyzer',
                 'dockerls',
                 'docker_compose_language_service',
                 'pyright',
