@@ -117,7 +117,7 @@ alias python=python3
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # golang
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/local/go/bin
 # rustlang
 export PATH=$PATH:$HOME/.cargo/bin
 
