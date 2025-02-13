@@ -89,6 +89,8 @@ alias dcb="docker-compose build --no-cache"
 
 alias python=python3
 
+alias glo="git log --oneline"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -117,7 +119,7 @@ alias python=python3
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # golang
-export PATH=$PATH:$HOME/local/go/bin
+export PATH=$PATH:$HOME/.local/go/bin
 # rustlang
 export PATH=$PATH:$HOME/.cargo/bin
 
@@ -127,3 +129,4 @@ source ~/.nvm/nvm.sh
 
 # pipenv
 export PIPENV_IGNORE_VIRTUALENVS=1
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

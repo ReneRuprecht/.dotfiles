@@ -45,6 +45,7 @@ return {
                 'pyright',
                 'terraformls',
                 'ansiblels',
+                'yamlls'
             },
             handlers = {
                 -- The first entry (without a key) will be the default handler
@@ -96,12 +97,23 @@ return {
                 end,
                 ["ansiblels"] = function()
                     local lspconfig = require("lspconfig")
-                    lspconfig.ansiblels.setup {
-                        capabilities = capabilities,
-                        filetypes = { 'yaml' },
-                        root_dir = lspconfig.util.root_pattern('ansible.cfg', '.ansible-lint'),
-                        single_file_support = true,
-                    }
+                    local util = lspconfig.util
+
+                    -- Funktion zur Überprüfung, ob eine `ansible.cfg` im Projekt-Root existiert
+                    local function has_ansible_cfg()
+                        local root = util.root_pattern('ansible.cfg')(vim.fn.getcwd())
+                        return root and vim.fn.filereadable(root .. '/ansible.cfg') == 1
+                    end
+
+                    -- Setup nur ausführen, wenn `ansible.cfg` gefunden wird
+                    if has_ansible_cfg() then
+                        lspconfig.ansiblels.setup {
+                            capabilities = capabilities,
+                            filetypes = { 'yaml', 'yml' },
+                            root_dir = util.root_pattern('ansible.cfg', '.ansible-lint'),
+                            single_file_support = true,
+                        }
+                    end
                 end,
                 ["terraformls"] = function()
                     local lspconfig = require("lspconfig")
@@ -120,6 +132,19 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.docker_compose_language_service.setup {
                         capabilities = capabilities,
+                    }
+                end,
+                ["yamlls"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.yamlls.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            yaml = {
+                                schemas = {
+                                    kubernetes = "/*.yaml"
+                                }
+                            }
+                        }
                     }
                 end,
             }
@@ -150,12 +175,12 @@ return {
                 ['<Enter>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<Tab>"] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_next_item()
+                    if luasnip.expand_or_jumpable() then
+                        luasnip.expand_or_jump()
+                    -- elseif cmp.visible() then
+                    --     cmp.select_next_item()
                         -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
                         -- that way you will only jump inside the snippet region
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
                     elseif has_words_before() then
                         cmp.complete()
                     else
@@ -164,10 +189,10 @@ return {
                 end, { "i", "s" }),
 
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
+                    if luasnip.jumpable(-1) then
                         luasnip.jump(-1)
+                    -- elseif cmp.visible() then
+                    --     cmp.select_prev_item()
                     else
                         fallback()
                     end
