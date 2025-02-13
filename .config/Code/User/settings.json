@@ -50,11 +50,6 @@
     "fish": {
       "path": "fish"
     },
-    "tmux": {
-      "path": "tmux",
-      "icon": "terminal-tmux",
-      "args": ["new-session", "-A", "-s", "vscode:${workspaceFolder}"]
-    },
     "pwsh": {
       "path": "pwsh",
       "icon": "terminal-powershell"
@@ -74,17 +69,12 @@
       "path": "fish",
       "args": ["-l"]
     },
-    "tmux": {
-      "path": "tmux",
-      "icon": "terminal-tmux",
-      "args": ["new-session", "-A", "-s", "vscode:${workspaceFolder}"]
-    },
     "pwsh": {
       "path": "pwsh",
       "icon": "terminal-powershell"
     }
   },
-  "terminal.integrated.defaultProfile.linux": "tmux",
+  "terminal.integrated.defaultProfile.linux": "zsh",
   "vim.leader": " ",
   "vim.hlsearch": true,
   "vim.handleKeys": {
