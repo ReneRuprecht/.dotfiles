@@ -86,67 +86,7 @@
   },
   "vim.history": 500,
   "vim.normalModeKeyBindingsNonRecursive": [
-    // COPY
-    {
-      // paste from system
-      "before": ["<leader>", "p"],
-      "after": ["\"", "+", "p"]
-    },
-    // COPY END
-    // PANES NAVIGATION
-    {
-      // left pane
-      "before": ["<leader>", "h"],
-      "commands": ["workbench.action.focusLeftGroup"]
-    },
-    {
-      // bottom pane
-      "before": ["<leader>", "j"],
-      "commands": ["workbench.action.focusBelowGroup"]
-    },
-    {
-      // above pane
-      "before": ["<leader>", "k"],
-      "commands": ["workbench.action.focusAboveGroup"]
-    },
-    {
-      // right pane
-      "before": ["<leader>", "l"],
-      "commands": ["workbench.action.focusRightGroup"]
-    },
-    // PANES NAVIGATION END
-    // EXPLORER
-    {
-      // toggle explorer
-      "before": ["<leader>", "e", "t"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
-    },
-    // EXPLORER END
-    // FIND
-    {
-      // go to file
-      "before": ["<leader>", "f", "f"],
-      "commands": ["workbench.action.quickOpen"]
-    },
-    // FIND END
-    {
-      "before": ["<leader>", "c", "a"],
-      "commands": ["editor.action.quickFix"]
-    },
-    {
-      "before": ["<leader>", "q", "f"],
-      "commands": ["editor.action.formatDocument"]
-    },
-    {
-      "before": ["K"],
-      "commands": ["editor.action.showDefinitionPreviewHover"]
-    },
     // EXTRA
-    {
-      // toggle zen mode
-      "before": ["<leader>", "z", "m", "t"],
-      "commands": ["workbench.action.toggleZenMode"]
-    },
     {
       "before": ["<C-d>"],
       "after": ["2", "0", "j", "z", "z"]
@@ -154,47 +94,11 @@
     {
       "before": ["<C-u>"],
       "after": ["2", "0", "k", "z", "z"]
-    },
-    // EXTRA END
-    // Editor Actions
-    {
-      "before": ["<leader>", "r"],
-      "commands": ["editor.action.rename"]
-    }
-    // Editor Actions End
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      // copy into system
-      "before": ["<leader>", "y"],
-      "after": ["\"", "+", "y"]
-    },
-    {
-      // copy from system
-      "before": ["<leader>", "p"],
-      "after": ["\"", "+", "p"]
-    },
-    {
-      // move line up
-      "before": ["K"],
-      "commands": ["editor.action.moveLinesUpAction"]
-    },
-    {
-      // move line down
-      "before": ["J"],
-      "commands": ["editor.action.moveLinesDownAction"]
-    },
-    {
-      // paste from system
-      "before": ["<leader>", "p"],
-      "after": ["\"", "+", "p"]
-    },
-    {
-      // paste from system
-      "before": ["<leader>", "P"],
-      "after": ["\"", "+", "P"]
     }
   ],
   "vsicons.dontShowNewVersionMessage": true,
-  "telemetry.telemetryLevel": "off"
+  "telemetry.telemetryLevel": "off",
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }
