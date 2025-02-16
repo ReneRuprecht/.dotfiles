@@ -48,12 +48,22 @@
   },
   // CODE
   {
+    "key": "space r f",
+    "command": "editor.action.refactor",
+    "when": "vim.mode != 'Insert' && editorTextFocus"
+  },
+  {
     "key": "shift+k",
     "command": "editor.action.showDefinitionPreviewHover",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
     "command": "editor.action.formatDocument",
+    "key": "space f d",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "command": "editor.action.quickFix",
     "key": "space q f",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
@@ -84,7 +94,7 @@
   },
   {
     "command": "workbench.action.quickOpen",
-    "key": "space space",
+    "key": "space f f",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
@@ -168,6 +178,16 @@
     "when": "editorHoverFocused"
   },
   {
+    "key": "ctrl+p",
+    "command": "selectPrevCodeAction",
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "selectNextCodeAction",
+    "when": "codeActionMenuVisible"
+  },
+  {
     "command": "editor.action.pageUpHover",
     "key": "ctrl+p",
     "when": "editorHoverFocused"
@@ -205,8 +225,8 @@
   },
   {
     "command": "workbench.action.terminal.toggleTerminal",
-    "key": "alt+j",
-    "when": "(vim.mode == 'Normal' && (editorTextFocus || !inputFocus)) || terminalFocus"
+    "key": "alt+j"
+    // "when": "(vim.mode == 'Normal' && (editorTextFocus || !inputFocus)) || terminalFocus"
   },
   {
     "command": "workbench.action.terminal.new",
