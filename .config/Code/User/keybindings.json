@@ -15,6 +15,16 @@
     "when": "vim.mode != 'Insert' && editorTextFocus"
   },
   {
+    "key": "space t m",
+    "command": "bookmarks.toggle",
+    "when": "vim.mode != 'Insert' && editorTextFocus"
+  },
+  {
+    "key": "space f m",
+    "command": "bookmarks.list",
+    "when": "vim.mode != 'Insert' && editorTextFocus"
+  },
+  {
     "key": "shift+k",
     "command": "editor.action.moveLinesUpAction",
     "when": "vim.mode == 'Visual' && (editorTextFocus || !inputFocus)"
@@ -26,19 +36,19 @@
   },
   // NAVIGATION
   {
-    "key": "ctrl-h",
+    "key": "ctrl+h",
     "command": "workbench.action.navigateLeft"
   },
   {
-    "key": "ctrl-l",
+    "key": "ctrl+l",
     "command": "workbench.action.navigateRight"
   },
   {
-    "key": "ctrl-k",
+    "key": "ctrl+k",
     "command": "workbench.action.navigateUp"
   },
   {
-    "key": "ctrl-j",
+    "key": "ctrl+j",
     "command": "workbench.action.navigateDown"
   },
   {
