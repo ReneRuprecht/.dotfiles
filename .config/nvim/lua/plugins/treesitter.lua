@@ -22,7 +22,8 @@ return {
                 "gomod",
                 "gowork",
                 "gosum",
-                "dockerfile"
+                "dockerfile",
+                "yaml"
             },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
