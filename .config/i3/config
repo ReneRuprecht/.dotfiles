@@ -7,6 +7,9 @@ bindsym $mod+Ctrl+less move workspace to output left
 # Setup multimonitor
 exec --no-startup-id xrandr --output HDMI-1 --auto --right-of HDMI-2 &
 
+# Background
+exec_always --no-startup-id feh --bg-scale $HOME/Pictures/background.png
+
 # Polybar
 exec_always killall polybar
 exec_always --no-startup-id ~/.config/polybar/polybar.sh
