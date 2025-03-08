@@ -2,3 +2,8 @@
 
 i3-msg "workspace 1; exec google-chrome;"
 i3-msg "workspace 2; exec gnome-terminal;"
+
+# gnome settings, dark mode
+if [ -f /usr/libexec/gsd-xsettings ]; then
+    /usr/libexec/gsd-xsettings
+fi
