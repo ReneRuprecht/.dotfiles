@@ -94,6 +94,10 @@ alias python=python3
 
 alias glo="git log --oneline"
 
+function lc() {
+    builtin cd $1 && ls
+}
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
