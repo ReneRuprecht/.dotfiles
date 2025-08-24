@@ -259,5 +259,15 @@
     "command": "workbench.action.toggleZenMode",
     "key": "space z m t",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+
+  {
+    // golang iferr, only if golang lsp is active
+    "key": "space e e",
+    "command": "editor.action.insertSnippet",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && editorLangId == 'go'",
+    "args": {
+      "snippet": "if err != nil {\n return nil,err\n}"
+    }
   }
 ]

@@ -100,5 +100,29 @@
   "telemetry.telemetryLevel": "off",
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
-  }
+  },
+  "vs-kubernetes": {
+    "vscode-kubernetes.minikube-path-linux": "/home/rene/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube",
+    "vscode-kubernetes.helm-path-linux": "/home/rene/.local/state/vs-kubernetes/tools/helm/linux-amd64/helm",
+    "vs-kubernetes.minikube-show-information-expiration": "2025-06-06T21:16:12.407Z"
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "ansible.lightspeed.enabled": false,
+  "ansible.lightspeed.suggestions.enabled": false,
+  "files.associations": {
+    "*.yml": "ansible"
+  },
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "keep",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.defaultColorDecorators": "never",
+    "editor.quickSuggestions": {
+      "strings": true,
+      "other": true,
+      "comments": false
+    }
+  },
+  "python.defaultInterpreterPath": "/home/rene/.local/share/virtualenvs/scraper-03KJbiOT"
 }
