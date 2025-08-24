@@ -20,7 +20,7 @@ nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
 set incsearch
 
 " quick format
-map <leader>qf gq<CR>
+map <leader>qf :action File
 
 set clipboard+=unnamed
 
