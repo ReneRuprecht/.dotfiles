@@ -140,9 +140,41 @@ return {
                         capabilities = capabilities,
                         settings = {
                             yaml = {
+                                schemaStore = {
+                                    enable = false
+                                },
                                 schemas = {
-                                    kubernetes = "/*.yaml"
-                                }
+                                    ["https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/all.json"] = {
+                                        "*/gitrepository*.yaml",
+                                        "*/helmrelease*.yaml",
+                                        "*/helmrepository*.yaml",
+                                        "*/release*.yaml",
+                                        "*/repository*.yaml",
+                                        "*/values*.yaml",
+                                        "*/chart*.yaml",
+                                    },
+                                    kubernetes = {
+                                        "*/deployment*.yaml",
+                                        "*/service*.yaml",
+                                        "*/configmap*.yaml",
+                                        "*/secret*.yaml",
+                                        "*/ingress*.yaml",
+                                        "*/namespace*.yaml",
+                                        "*/pod*.yaml",
+                                        "*/persistentvolume*.yaml",
+                                        "*/pv*.yaml",
+                                        "*/persistentvolumeclaim*.yaml",
+                                        "*/pvc*.yaml",
+                                        "*/statefulset*.yaml",
+                                        "*/daemonset*.yaml",
+                                    },
+                                    ["https://www.schemastore.org/kustomization.json"] = {
+                                        "*/kustomization*.yaml",
+                                    }
+                                },
+                                validate = { enable = true },
+                                completion = { enable = true },
+                                hover = { enable = true },
                             }
                         }
                     }
@@ -177,8 +209,8 @@ return {
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if luasnip.expand_or_jumpable() then
                         luasnip.expand_or_jump()
-                    -- elseif cmp.visible() then
-                    --     cmp.select_next_item()
+                        -- elseif cmp.visible() then
+                        --     cmp.select_next_item()
                         -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
                         -- that way you will only jump inside the snippet region
                     elseif has_words_before() then
@@ -191,8 +223,8 @@ return {
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if luasnip.jumpable(-1) then
                         luasnip.jump(-1)
-                    -- elseif cmp.visible() then
-                    --     cmp.select_prev_item()
+                        -- elseif cmp.visible() then
+                        --     cmp.select_prev_item()
                     else
                         fallback()
                     end
