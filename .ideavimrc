@@ -20,13 +20,18 @@ nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
 set incsearch
 
 " quick format
-map <leader>qf :action File
+map <leader>fd :action ReformatCode<CR>
 
 set clipboard+=unnamed
 
 " jump with centering
 nnoremap <C-d> :action EditorPageDown<CR>zz<CR>
 nnoremap <C-u> :action EditorPageUp<CR>zz<CR>
+
+nnoremap <leader>rp :action Run<CR>
+nnoremap <leader>sp :action Stop<CR>
+
+nnoremap <M-j> :action ActivateTerminalToolWindow<CR>
 
 nnoremap L $
 nnoremap H ^
@@ -40,8 +45,8 @@ vnoremap J :action MoveStatementDown<CR>
 
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap <C-p> :action GotoFile<CR>
-nnoremap ff :action FindInPath<CR>
-nnoremap fu :action FindUsages<CR>
+nnoremap <leader>ff :action FindInPath<CR>
+nnoremap <leader>fu :action FindUsages<CR>
 nnoremap <leader>gc :action GotoClass <CR>
 vnoremap <leader>gc :action GotoClass <CR>
 
@@ -81,7 +86,7 @@ nnoremap <C-s> :action SaveAll<CR>
 Plug 'tpope/vim-surround'
 
 Plug 'preservim/nerdtree'
-nnoremap <leader>pt :NERDTreeToggle<Enter>
+nnoremap <leader>et :NERDTreeToggle<Enter>
 nnoremap <leader>pv :NERDTree<Enter>
 nnoremap <leader>pc :NERDTreeClose<Enter>
 
