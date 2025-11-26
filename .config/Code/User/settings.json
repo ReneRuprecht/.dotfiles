@@ -124,5 +124,25 @@
       "comments": false
     }
   },
-  "python.defaultInterpreterPath": "/home/rene/.local/share/virtualenvs/scraper-03KJbiOT"
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "pylint.enabled": false,
+  "black-formatter.args": [
+    "--line-length",
+    "79"
+  ],
+  "flake8.enabled": true,
+  "isort.args": [
+    "--profile",
+    "'black'"
+  ],
+  "docker.extension.enableComposeLanguageServer": false,
+  "makefile.configureOnOpen": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 }

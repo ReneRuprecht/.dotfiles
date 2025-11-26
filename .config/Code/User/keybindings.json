@@ -214,6 +214,36 @@
   },
   // TERMINAL
   {
+    "command": "workbench.action.terminal.new",
+    "key": "ctrl+t",
+    "when": "terminalFocus"
+  },
+  {
+    "command": "workbench.action.terminal.kill",
+    "key": "ctrl+w",
+    "when": "terminalFocus"
+  },
+  {
+    "command": "workbench.action.terminal.resizePaneDown",
+    "key": "ctrl+alt+j",
+    "when": "terminalFocus"
+  },
+  {
+    "command": "workbench.action.terminal.resizePaneUp",
+    "key": "ctrl+alt+k",
+    "when": "terminalFocus"
+  },
+  {
+    "command": "workbench.action.terminal.resizePaneLeft",
+    "key": "ctrl+alt+h",
+    "when": "terminalFocus"
+  },
+  {
+    "command": "workbench.action.terminal.resizePaneRight",
+    "key": "ctrl+alt+l",
+    "when": "terminalFocus"
+  },
+  {
     "command": "workbench.action.terminal.focusNext",
     "key": "ctrl+n",
     "when": "terminalFocus"
