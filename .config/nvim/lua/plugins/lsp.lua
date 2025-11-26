@@ -48,15 +48,11 @@ return {
                 'yamlls'
             },
             handlers = {
-                -- The first entry (without a key) will be the default handler
-                -- and will be called for each installed server that doesn't have
-                -- a dedicated handler.
                 function(server_name) -- default handler (optional)
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities,
                     }
                 end,
-                -- Next, you can provide targeted overrides for specific servers.
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
@@ -132,12 +128,31 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.docker_compose_language_service.setup {
                         capabilities = capabilities,
+                        filetypes = { "yaml.docker-compose" },
+                    }
+                end,
+                ["ts_ls"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.ts_ls.setup {
+                        capabilities = capabilities,
+                        filetypes = {
+                            "typescript",
+                            "javascript",
+                            "javascriptreact",
+                            "typescriptreact",
+                        },
+                        root_dir = lspconfig.util.root_pattern(
+                            "package.json",
+                            "tsconfig.json",
+                            ".git"
+                        )
                     }
                 end,
                 ["yamlls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.yamlls.setup {
                         capabilities = capabilities,
+                        filetypes = { "yaml" },
                         settings = {
                             yaml = {
                                 schemaStore = {
@@ -204,7 +219,7 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<Enter>'] = cmp.mapping.confirm({ select = true }),
+                ['<CR>'] = cmp.mapping.confirm({ select = false }),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if luasnip.expand_or_jumpable() then
@@ -233,6 +248,7 @@ return {
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
+                { name = "path" }
             }, {
                 { name = 'buffer' },
             })
