@@ -40,6 +40,7 @@ return {
                 'lua_ls',
                 -- 'gopls',
                 -- 'rust_analyzer',
+                'bashls',
                 'dockerls',
                 'docker_compose_language_service',
                 'pyright',
@@ -89,6 +90,13 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.pyright.setup {
                         capabilities = capabilities,
+                    }
+                end,
+                ["bashls"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.bashls.setup {
+                        capabilities = capabilities,
+                        filetypes = { 'sh' },
                     }
                 end,
                 ["ansiblels"] = function()
