@@ -141,7 +141,7 @@
   {
     "command": "explorer.newFolder",
     "key": "shift+n",
-    "when": "explorerViewletFocus"
+    "when": "explorerViewletFocus && !inputFocus"
   },
   {
     "command": "renameFile",

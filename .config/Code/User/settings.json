@@ -24,7 +24,7 @@
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
-    "**/*.code-search": true
+    "**/*.code-search": true,
   },
   "workbench.iconTheme": "vscode-icons",
   "workbench.editor.showTabs": "none",
@@ -37,42 +37,42 @@
   "zenMode.centerLayout": true,
   "zenMode.hideStatusBar": false,
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "terminal.integrated.profiles.linux": {
     "bash": {
       "path": "bash",
-      "icon": "terminal-bash"
+      "icon": "terminal-bash",
     },
     "zsh": {
-      "path": "zsh"
+      "path": "zsh",
     },
     "fish": {
-      "path": "fish"
+      "path": "fish",
     },
     "pwsh": {
       "path": "pwsh",
-      "icon": "terminal-powershell"
-    }
+      "icon": "terminal-powershell",
+    },
   },
   "terminal.integrated.profiles.osx": {
     "bash": {
       "path": "bash",
       "args": ["-l"],
-      "icon": "terminal-bash"
+      "icon": "terminal-bash",
     },
     "zsh": {
       "path": "zsh",
-      "args": ["-l"]
+      "args": ["-l"],
     },
     "fish": {
       "path": "fish",
-      "args": ["-l"]
+      "args": ["-l"],
     },
     "pwsh": {
       "path": "pwsh",
-      "icon": "terminal-powershell"
-    }
+      "icon": "terminal-powershell",
+    },
   },
   "terminal.integrated.defaultProfile.linux": "zsh",
   "vim.leader": " ",
@@ -82,35 +82,35 @@
     "<C-u>": true,
     "<C-s>": false,
     "<C-z>": false,
-    "<C-k>": false
+    "<C-k>": false,
   },
   "vim.history": 500,
   "vim.normalModeKeyBindingsNonRecursive": [
     // EXTRA
     {
       "before": ["<C-d>"],
-      "after": ["2", "0", "j", "z", "z"]
+      "after": ["2", "0", "j", "z", "z"],
     },
     {
       "before": ["<C-u>"],
-      "after": ["2", "0", "k", "z", "z"]
-    }
+      "after": ["2", "0", "k", "z", "z"],
+    },
   ],
   "vsicons.dontShowNewVersionMessage": true,
   "telemetry.telemetryLevel": "off",
   "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "vscode.typescript-language-features",
   },
   "vs-kubernetes": {
     "vscode-kubernetes.minikube-path-linux": "/home/rene/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube",
     "vscode-kubernetes.helm-path-linux": "/home/rene/.local/state/vs-kubernetes/tools/helm/linux-amd64/helm",
-    "vs-kubernetes.minikube-show-information-expiration": "2025-06-06T21:16:12.407Z"
+    "vs-kubernetes.minikube-show-information-expiration": "2025-06-06T21:16:12.407Z",
   },
   "git.openRepositoryInParentFolders": "never",
   "ansible.lightspeed.enabled": false,
   "ansible.lightspeed.suggestions.enabled": false,
   "files.associations": {
-    "*.yml": "ansible"
+    "*.yml": "ansible",
   },
   "[yaml]": {
     "editor.insertSpaces": true,
@@ -121,28 +121,30 @@
     "editor.quickSuggestions": {
       "strings": true,
       "other": true,
-      "comments": false
-    }
+      "comments": false,
+    },
   },
   "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "pylint.enabled": false,
-  "black-formatter.args": [
-    "--line-length",
-    "79"
-  ],
+  "black-formatter.args": ["--line-length", "79"],
   "flake8.enabled": true,
-  "isort.args": [
-    "--profile",
-    "'black'"
-  ],
+  "isort.args": ["--profile", "'black'"],
   "docker.extension.enableComposeLanguageServer": false,
   "makefile.configureOnOpen": true,
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
+  "[php]": {},
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "prettier.jsxSingleQuote": true,
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  "prettier.singleQuote": true,
 }
